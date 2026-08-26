@@ -33,6 +33,10 @@ case "revenu":
 include("revenu.php");
 break;
 
+case "Lumicash":
+include("lumicash.php");
+break;
+
 default:
 echo "<h2>Bienvenue dans Gojo</h2>";
 }
