@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paiement Lumicash - Agence</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2f3, #d9e7f0);
+            color: #333;
+        }
+
+        .header {
+            background: #0b2d4d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .header p {
+            margin: 8px 0 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            color: #0b2d4d;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1f7a8c;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #0b2d4d;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #1f7a8c;
+        }
+
+        .info {
+            background: #eaf7ff;
+            border-left: 5px solid #1f7a8c;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background: #fff4d6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .success {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .weather {
+            text-align: center;
+        }
+
+        .weather-icon {
+            font-size: 45px;
+        }
+
+        .weather-temp {
+            font-size: 30px;
+            font-weight: bold;
+            color: #0b2d4d;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #555;
+        }
+
+        @media(max-width: 500px) {
+
+            .header h1 {
+                font-size: 23px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- EN-TÊTE -->
+<div class="header">
+
+    <h1>💰 Paiement Lumicash</h1>
+
+    <p>Agence de recrutement et de placement à l'étranger</p>
+
+</div>
+
+
+<div class="container">
+
+    <!-- FORMULAIRE LUMICASH -->
+
+    <div class="card">
+
+        <h2>Effectuer un paiement</h2>
+
+        <form id="paymentForm">
+
+            <label for="nom">
+                Nom complet
+            </label>
+
+            <input
+                type="text"
+                id="nom"
+                placeholder="Exemple : Jean Niyonzima"
+                required
+            >
+
+
+            <label for="telephone">
+                Numéro Lumicash
+            </label>
+
+            <input
+                type="tel"
+                id="telephone"
+                placeholder="Exemple : 79xxxxxx"
+                required
+            >
+
+
+            <label for="montant">
+                Montant (FBU)
+            </label>
+
+            <input
+                type="number"
+                id="montant"
+                placeholder="Exemple : 50000"
+                min="1"
+                required
+            >
+
+
+            <button type="submit" class="button">
+                💰 Continuer
+            </button>
+
+        </form>
+
+
+        <div id="success" class="success">
+
+            ✅ Informations enregistrées pour la simulation.
+
+            <br><br>
+
+            Aucun paiement réel n'a été effectué.
+
+        </div>
+
+
+        <div class="warning">
+
+            ⚠️ <strong>Important :</strong>
+
+            Cette page est une démonstration.
+
+            Aucun paiement Lumicash réel n'est effectué.
+
+        </div>
+
+    </div>
+
+
+    <!-- INFORMATIONS -->
+
+    <div class="card">
+
+        <h2>📱 Besoin d'aide ?</h2>
+
+        <div class="info">
+
+            Pour toute question concernant le paiement,
+            contactez notre agence directement sur WhatsApp.
+
+        </div>
+
+        <a
+            href="https://wa.me/25766780367?text=Bonjour%2C%20je%20voudrais%20avoir%20des%20informations%20sur%20le%20paiement%20Lumicash."
+            target="_blank"
+            class="button"
+            style="display:block;text-align:center;text-decoration:none;"
+        >
+
+            💬 Contacter sur WhatsApp
+
+        </a>
+
+    </div>
+
+
+    <!-- METEO -->
+
+    <div class="card weather">
+
+        <h2>🌤️ Météo</h2>
+
+        <div id="weather">
+
+            Chargement de la météo...
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    © 2026 Agence de recrutement et de placement
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    /*
+       FORMULAIRE DE SIMULATION
+       Aucun vrai paiement n'est effectué.
+    */
+
+    document
+        .getElementById("paymentForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const nom =
+                document.getElementById("nom").value;
+
+            const telephone =
+                document.getElementById("telephone").value;
+
+            const montant =
+                document.getElementById("montant").value;
+
+            if (
+                nom === "" ||
+                telephone === "" ||
+                montant === ""
+            ) {
+
+                alert("Veuillez remplir tous les champs.");
+
+                return;
+            }
+
+            document.getElementById("success").style.display = "block";
+
+        });
+
+
+    /*
+       METEO
+       API Open-Meteo
+
+       Coordonnées de Gitega :
+       latitude  -3.4264
+       longitude 29.9308
+    */
+
+    async function getWeather() {
+
+        const url =
+        "https://api.open-meteo.com/v1/forecast" +
+        "?latitude=-3.4264" +
+        "&longitude=29.9308" +
+        "&current=temperature_2m,weather_code" +
+        "&timezone=Africa%2FBujumbura";
+
+
+        try {
+
+            const response =
+                await fetch(url);
+
+            const data =
+                await response.json();
+
+            const temperature =
+                data.current.temperature_2m;
+
+            const code =
+                data.current.weather_code;
+
+
+            let description = "Conditions actuelles";
+
+            let icon = "🌤️";
+
+
+            if (code === 0) {
+
+                description = "Ciel dégagé";
+                icon = "☀️";
+
+            }
+            else if (
+                code >= 1 &&
+                code <= 3
+            ) {
+
+                description = "Partiellement nuageux";
+                icon = "🌤️";
+
+            }
+            else if (
+                code >= 45 &&
+                code <= 48
+            ) {
+
+                description = "Brouillard";
+                icon = "🌫️";
+
+            }
+            else if (
+                code >= 51 &&
+                code <= 67
+            ) {
+
+                description = "Pluie";
+                icon = "🌧️";
+
+            }
+            else if (
+                code >= 80 &&
+                code <= 82
+            ) {
+
+                description = "Averses";
+                icon = "🌦️";
+
+            }
+            else if (
+                code >= 95
+            ) {
+
+                description = "Orage";
+                icon = "⛈️";
+
+            }
+
+
+            document.getElementById("weather").innerHTML = `
+
+                <div class="weather-icon">
+                    ${icon}
+                </div>
+
+                <div class="weather-temp">
+                    ${temperature} °C
+                </div>
+
+                <p>
+                    ${description}
+                </p>
+
+                <p>
+                    📍 Gitega, Burundi
+                </p>
+
+            `;
+
+        }
+        catch (error) {
+
+            document.getElementById("weather").innerHTML = `
+
+                <p>
+                    ❌ Impossible de charger la météo.
+                </p>
+
+            `;
+
+        }
+
+    }
+
+
+    getWeather();
+
+</script>
+
+</body>
+</html>
