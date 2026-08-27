@@ -2,13 +2,843 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire de recrutement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formulaire de recrutement universitaire</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef5ff, #dfeeff);
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            color: #0b3d91;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .section {
+            margin-top: 30px;
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background: #fafafa;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #0b3d91;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #0b3d91;
+            box-shadow: 0 0 5px rgba(11, 61, 145, 0.2);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading {
+            color: #555;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #0b3d91;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #082d6b;
+        }
+
+        button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        .required {
+            color: red;
+        }
+
+        @media (max-width: 650px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Formulaire de recrutement universitaire</h1>
+<div class="container">
 
-    <p>Notre formulaire est en construction.</p>
+    <div class="header">
+        <h1>🎓 Formulaire de recrutement universitaire</h1>
+        <p>
+            Candidatez pour intégrer une université à l'étranger
+        </p>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <form id="recrutementForm">
+
+        <!-- IDENTIFICATION -->
+        <div class="section">
+
+            <h2>👤 Identification de l'étudiant</h2>
+
+            <div class="row">
+
+                <div class="form-group">
+                    <label for="nom">
+                        Nom <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nom"
+                        name="nom"
+                        placeholder="Votre nom"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom">
+                        Prénom <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="prenom"
+                        name="prenom"
+                        placeholder="Votre prénom"
+                        required
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DESTINATION -->
+        <div class="section">
+
+            <h2>🌍 Choix de destination</h2>
+
+            <div class="form-group">
+
+                <label for="continent">
+                    Continent <span class="required">*</span>
+                </label>
+
+                <select id="continent" name="continent" required>
+
+                    <option value="">
+                        Chargement des continents...
+                    </option>
+
+                </select>
+
+                <div id="continentLoading" class="loading"></div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="pays">
+                    Pays <span class="required">*</span>
+                </label>
+
+                <select id="pays" name="pays" required disabled>
+
+                    <option value="">
+                        Choisir d'abord un continent
+                    </option>
+
+                </select>
+
+                <div id="paysLoading" class="loading"></div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="universite">
+                    Université <span class="required">*</span>
+                </label>
+
+                <select id="universite" name="universite" required disabled>
+
+                    <option value="">
+                        Choisir d'abord un pays
+                    </option>
+
+                </select>
+
+                <div id="universiteLoading" class="loading"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INFORMATIONS ACADÉMIQUES -->
+        <div class="section">
+
+            <h2>🎓 Informations académiques</h2>
+
+            <div class="form-group">
+
+                <label for="filiere">
+                    Filière <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="filiere"
+                    name="filiere"
+                    placeholder="Exemple : Génie Logiciel"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="niveau">
+                    Niveau <span class="required">*</span>
+                </label>
+
+                <select id="niveau" name="niveau" required>
+
+                    <option value="">
+                        -- Choisir --
+                    </option>
+
+                    <option value="Baccalauréat">
+                        Baccalauréat
+                    </option>
+
+                    <option value="Licence 1">
+                        Licence 1
+                    </option>
+
+                    <option value="Licence 2">
+                        Licence 2
+                    </option>
+
+                    <option value="Licence 3">
+                        Licence 3
+                    </option>
+
+                    <option value="Master 1">
+                        Master 1
+                    </option>
+
+                    <option value="Master 2">
+                        Master 2
+                    </option>
+
+                    <option value="Doctorat">
+                        Doctorat
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- COORDONNÉES -->
+        <div class="section">
+
+            <h2>📞 Coordonnées</h2>
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="exemple@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="telephone">
+                        Téléphone <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telephone"
+                        name="telephone"
+                        placeholder="+257 ..."
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOTIVATION -->
+        <div class="section">
+
+            <h2>📝 Motivation</h2>
+
+            <div class="form-group">
+
+                <label for="motivation">
+                    Pourquoi souhaitez-vous intégrer cette université ?
+                    <span class="required">*</span>
+                </label>
+
+                <textarea
+                    id="motivation"
+                    name="motivation"
+                    placeholder="Écrivez votre motivation..."
+                    required
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <button type="submit" id="submitBtn">
+            📤 Envoyer ma candidature
+        </button>
+
+    </form>
+
+</div>
+
+
+<script>
+
+    // =====================================================
+    // RÉCUPÉRATION DES ÉLÉMENTS HTML
+    // =====================================================
+
+    const continentSelect = document.getElementById("continent");
+    const paysSelect = document.getElementById("pays");
+    const universiteSelect = document.getElementById("universite");
+
+    const continentLoading = document.getElementById("continentLoading");
+    const paysLoading = document.getElementById("paysLoading");
+    const universiteLoading = document.getElementById("universiteLoading");
+
+    const message = document.getElementById("message");
+
+    const form = document.getElementById("recrutementForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+
+    // =====================================================
+    // VARIABLES POUR STOCKER LES DONNÉES JSON
+    // =====================================================
+
+    let continents = [];
+    let pays = [];
+    let universites = [];
+
+
+    // =====================================================
+    // FONCTION POUR AFFICHER UNE ERREUR
+    // =====================================================
+
+    function afficherErreur(texte) {
+
+        message.textContent = "❌ " + texte;
+
+        message.className = "message error";
+
+        message.style.display = "block";
+    }
+
+
+    // =====================================================
+    // FONCTION POUR MASQUER LE MESSAGE
+    // =====================================================
+
+    function cacherMessage() {
+
+        message.style.display = "none";
+
+    }
+
+
+    // =====================================================
+    // CHARGER LES 3 FICHIERS JSON
+    // =====================================================
+
+    async function chargerDonnees() {
+
+        try {
+
+            continentLoading.textContent =
+                "Chargement des données...";
+
+
+            const [continentsResponse, paysResponse, universitesResponse] =
+                await Promise.all([
+
+                    fetch("data/continents.json"),
+
+                    fetch("data/pays.json"),
+
+                    fetch("data/universites.json")
+
+                ]);
+
+
+            if (!continentsResponse.ok) {
+
+                throw new Error(
+                    "Impossible de charger continents.json"
+                );
+
+            }
+
+
+            if (!paysResponse.ok) {
+
+                throw new Error(
+                    "Impossible de charger pays.json"
+                );
+
+            }
+
+
+            if (!universitesResponse.ok) {
+
+                throw new Error(
+                    "Impossible de charger universites.json"
+                );
+
+            }
+
+
+            continents = await continentsResponse.json();
+
+            pays = await paysResponse.json();
+
+            universites = await universitesResponse.json();
+
+
+            console.log("Continents :", continents);
+
+            console.log("Pays :", pays);
+
+            console.log("Universités :", universites);
+
+
+            chargerContinents();
+
+
+            continentLoading.textContent =
+                "✅ Données chargées avec succès.";
+
+
+        } catch (erreur) {
+
+            console.error(erreur);
+
+            continentSelect.innerHTML =
+                '<option value="">Impossible de charger</option>';
+
+            afficherErreur(
+                "Impossible de charger les données. " +
+                "Vérifie que les fichiers JSON sont bien dans le dossier data."
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHARGER LES CONTINENTS
+    // =====================================================
+
+    function chargerContinents() {
+
+        continentSelect.innerHTML =
+            '<option value="">-- Choisir un continent --</option>';
+
+
+        continents.forEach(continent => {
+
+            const option = document.createElement("option");
+
+            option.value = continent.code;
+
+            option.textContent = continent.nom;
+
+            continentSelect.appendChild(option);
+
+        });
+
+    }
+
+
+    // =====================================================
+    // QUAND ON CHOISIT UN CONTINENT
+    // =====================================================
+
+    continentSelect.addEventListener("change", function () {
+
+        const continentCode = this.value;
+
+
+        // Réinitialiser les pays
+
+        paysSelect.innerHTML =
+            '<option value="">-- Choisir un pays --</option>';
+
+        universiteSelect.innerHTML =
+            '<option value="">Choisir d\'abord un pays</option>';
+
+
+        universiteSelect.disabled = true;
+
+
+        if (!continentCode) {
+
+            paysSelect.disabled = true;
+
+            paysSelect.innerHTML =
+                '<option value="">Choisir d\'abord un continent</option>';
+
+            return;
+
+        }
+
+
+        // Chercher les pays du continent
+
+        const paysDuContinent = pays.filter(
+            paysItem =>
+                paysItem.continent === continentCode
+        );
+
+
+        if (paysDuContinent.length === 0) {
+
+            paysSelect.innerHTML =
+                '<option value="">Aucun pays trouvé</option>';
+
+            paysSelect.disabled = true;
+
+            return;
+
+        }
+
+
+        paysDuContinent.forEach(paysItem => {
+
+            const option = document.createElement("option");
+
+            option.value = paysItem.code;
+
+            option.textContent = paysItem.nom;
+
+            paysSelect.appendChild(option);
+
+        });
+
+
+        paysSelect.disabled = false;
+
+    });
+
+
+    // =====================================================
+    // QUAND ON CHOISIT UN PAYS
+    // =====================================================
+
+    paysSelect.addEventListener("change", function () {
+
+        const paysCode = this.value;
+
+
+        universiteSelect.innerHTML =
+            '<option value="">-- Choisir une université --</option>';
+
+        universiteSelect.disabled = true;
+
+
+        if (!paysCode) {
+
+            universiteSelect.innerHTML =
+                '<option value="">Choisir d\'abord un pays</option>';
+
+            return;
+
+        }
+
+
+        // Chercher les universités du pays
+
+        const universitesDuPays = universites.filter(
+            universite => {
+
+                return (
+                    universite.alpha_two_code === paysCode ||
+                    universite.pays === paysCode ||
+                    universite.country_code === paysCode
+                );
+
+            }
+        );
+
+
+        console.log(
+            "Universités trouvées :",
+            universitesDuPays
+        );
+
+
+        if (universitesDuPays.length === 0) {
+
+            universiteSelect.innerHTML =
+                '<option value="">Aucune université trouvée</option>';
+
+            return;
+
+        }
+
+
+        universitesDuPays.forEach(universite => {
+
+            const option = document.createElement("option");
+
+            option.value =
+                universite.name ||
+                universite.nom;
+
+            option.textContent =
+                universite.name ||
+                universite.nom;
+
+            universiteSelect.appendChild(option);
+
+        });
+
+
+        universiteSelect.disabled = false;
+
+    });
+
+
+    // =====================================================
+    // ENVOI DU FORMULAIRE
+    // =====================================================
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        if (!form.checkValidity()) {
+
+            form.reportValidity();
+
+            return;
+
+        }
+
+
+        cacherMessage();
+
+
+        const donnees = {
+
+            nom: document.getElementById("nom").value,
+
+            prenom: document.getElementById("prenom").value,
+
+            continent:
+                continentSelect.options[
+                    continentSelect.selectedIndex
+                ].text,
+
+            pays:
+                paysSelect.options[
+                    paysSelect.selectedIndex
+                ].text,
+
+            universite:
+                universiteSelect.options[
+                    universiteSelect.selectedIndex
+                ].text,
+
+            filiere:
+                document.getElementById("filiere").value,
+
+            niveau:
+                document.getElementById("niveau").value,
+
+            email:
+                document.getElementById("email").value,
+
+            telephone:
+                document.getElementById("telephone").value,
+
+            motivation:
+                document.getElementById("motivation").value
+
+        };
+
+
+        console.log(
+            "Candidature :",
+            donnees
+        );
+
+
+        message.textContent =
+            "✅ Votre candidature a été enregistrée avec succès !";
+
+
+        message.className =
+            "message success";
+
+
+        message.style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+
+        // Pour l'instant, nous ne faisons pas encore
+        // l'enregistrement dans une base de données.
+
+    });
+
+
+    // =====================================================
+    // DÉMARRAGE
+    // =====================================================
+
+    chargerDonnees();
+
+</script>
 
 </body>
 </html>
