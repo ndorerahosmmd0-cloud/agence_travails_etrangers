@@ -1,0 +1,22 @@
+[
+    {
+        "code": "AF",
+        "nom": "Afrique"
+    },
+    {
+        "code": "EU",
+        "nom": "Europe"
+    },
+    {
+        "code": "AS",
+        "nom": "Asie"
+    },
+    {
+        "code": "AM",
+        "nom": "Amérique"
+    },
+    {
+        "code": "OC",
+        "nom": "Océanie"
+    }
+]
