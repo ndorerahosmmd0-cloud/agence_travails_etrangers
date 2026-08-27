@@ -1,0 +1,319 @@
+[
+    {
+        "id": 1,
+        "pays": "BI",
+        "nom": "Université du Burundi"
+    },
+    {
+        "id": 2,
+        "pays": "BI",
+        "nom": "Université Lumière de Bujumbura"
+    },
+    {
+        "id": 3,
+        "pays": "BI",
+        "nom": "Université du Lac Tanganyika"
+    },
+
+    {
+        "id": 4,
+        "pays": "RW",
+        "nom": "University of Rwanda"
+    },
+    {
+        "id": 5,
+        "pays": "RW",
+        "nom": "Kigali Independent University"
+    },
+
+    {
+        "id": 6,
+        "pays": "CD",
+        "nom": "Université de Kinshasa"
+    },
+    {
+        "id": 7,
+        "pays": "CD",
+        "nom": "Université de Lubumbashi"
+    },
+
+    {
+        "id": 8,
+        "pays": "KE",
+        "nom": "University of Nairobi"
+    },
+    {
+        "id": 9,
+        "pays": "KE",
+        "nom": "Kenyatta University"
+    },
+
+    {
+        "id": 10,
+        "pays": "UG",
+        "nom": "Makerere University"
+    },
+
+    {
+        "id": 11,
+        "pays": "TZ",
+        "nom": "University of Dar es Salaam"
+    },
+
+    {
+        "id": 12,
+        "pays": "ZA",
+        "nom": "University of Cape Town"
+    },
+    {
+        "id": 13,
+        "pays": "ZA",
+        "nom": "University of Johannesburg"
+    },
+
+    {
+        "id": 14,
+        "pays": "NG",
+        "nom": "University of Lagos"
+    },
+    {
+        "id": 15,
+        "pays": "NG",
+        "nom": "University of Ibadan"
+    },
+
+    {
+        "id": 16,
+        "pays": "GH",
+        "nom": "University of Ghana"
+    },
+
+    {
+        "id": 17,
+        "pays": "SN",
+        "nom": "Université Cheikh Anta Diop de Dakar"
+    },
+
+    {
+        "id": 18,
+        "pays": "MA",
+        "nom": "Université Mohammed V de Rabat"
+    },
+
+    {
+        "id": 19,
+        "pays": "DZ",
+        "nom": "Université d'Alger"
+    },
+
+    {
+        "id": 20,
+        "pays": "CM",
+        "nom": "Université de Yaoundé I"
+    },
+
+    {
+        "id": 21,
+        "pays": "FR",
+        "nom": "Sorbonne Université"
+    },
+    {
+        "id": 22,
+        "pays": "FR",
+        "nom": "Université Paris Cité"
+    },
+    {
+        "id": 23,
+        "pays": "FR",
+        "nom": "Université Paris-Saclay"
+    },
+    {
+        "id": 24,
+        "pays": "FR",
+        "nom": "Université de Strasbourg"
+    },
+
+    {
+        "id": 25,
+        "pays": "BE",
+        "nom": "Université libre de Bruxelles"
+    },
+    {
+        "id": 26,
+        "pays": "BE",
+        "nom": "KU Leuven"
+    },
+
+    {
+        "id": 27,
+        "pays": "DE",
+        "nom": "Technical University of Munich"
+    },
+    {
+        "id": 28,
+        "pays": "DE",
+        "nom": "Ludwig Maximilian University of Munich"
+    },
+
+    {
+        "id": 29,
+        "pays": "GB",
+        "nom": "University of Oxford"
+    },
+    {
+        "id": 30,
+        "pays": "GB",
+        "nom": "University of Cambridge"
+    },
+
+    {
+        "id": 31,
+        "pays": "IT",
+        "nom": "University of Bologna"
+    },
+    {
+        "id": 32,
+        "pays": "IT",
+        "nom": "Sapienza University of Rome"
+    },
+
+    {
+        "id": 33,
+        "pays": "ES",
+        "nom": "University of Barcelona"
+    },
+    {
+        "id": 34,
+        "pays": "ES",
+        "nom": "Complutense University of Madrid"
+    },
+
+    {
+        "id": 35,
+        "pays": "CH",
+        "nom": "ETH Zurich"
+    },
+
+    {
+        "id": 36,
+        "pays": "NL",
+        "nom": "University of Amsterdam"
+    },
+
+    {
+        "id": 37,
+        "pays": "US",
+        "nom": "Harvard University"
+    },
+    {
+        "id": 38,
+        "pays": "US",
+        "nom": "Stanford University"
+    },
+    {
+        "id": 39,
+        "pays": "US",
+        "nom": "Massachusetts Institute of Technology"
+    },
+    {
+        "id": 40,
+        "pays": "US",
+        "nom": "University of California, Berkeley"
+    },
+
+    {
+        "id": 41,
+        "pays": "CA",
+        "nom": "University of Toronto"
+    },
+    {
+        "id": 42,
+        "pays": "CA",
+        "nom": "McGill University"
+    },
+
+    {
+        "id": 43,
+        "pays": "BR",
+        "nom": "University of São Paulo"
+    },
+    {
+        "id": 44,
+        "pays": "BR",
+        "nom": "Federal University of Rio de Janeiro"
+    },
+
+    {
+        "id": 45,
+        "pays": "AR",
+        "nom": "University of Buenos Aires"
+    },
+
+    {
+        "id": 46,
+        "pays": "MX",
+        "nom": "National Autonomous University of Mexico"
+    },
+
+    {
+        "id": 47,
+        "pays": "CN",
+        "nom": "Tsinghua University"
+    },
+    {
+        "id": 48,
+        "pays": "CN",
+        "nom": "Peking University"
+    },
+
+    {
+        "id": 49,
+        "pays": "JP",
+        "nom": "University of Tokyo"
+    },
+    {
+        "id": 50,
+        "pays": "JP",
+        "nom": "Kyoto University"
+    },
+
+    {
+        "id": 51,
+        "pays": "KR",
+        "nom": "Seoul National University"
+    },
+
+    {
+        "id": 52,
+        "pays": "IN",
+        "nom": "Indian Institute of Technology Bombay"
+    },
+    {
+        "id": 53,
+        "pays": "IN",
+        "nom": "University of Delhi"
+    },
+
+    {
+        "id": 54,
+        "pays": "SG",
+        "nom": "National University of Singapore"
+    },
+
+    {
+        "id": 55,
+        "pays": "AU",
+        "nom": "University of Melbourne"
+    },
+    {
+        "id": 56,
+        "pays": "AU",
+        "nom": "University of Sydney"
+    },
+
+    {
+        "id": 57,
+        "pays": "NZ",
+        "nom": "University of Auckland"
+    }
+]
